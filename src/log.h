@@ -2,6 +2,10 @@
 #define _log_h
 #include <stdio.h>
 
+#define INFO    1
+#define WARNING 2
+#define ERROR   3
+
 #define LOGFILE    "x4.log"
 extern int logFileCreated;
 

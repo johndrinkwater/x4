@@ -14,8 +14,8 @@ int main(int argc, char* argv[])
 
     snprintf(startmsg, 512, "Starting X4 %s+[%s]", version, cvs_version);
 
-    log_stdout("core/main", startmsg, 1);
-    log_stdout("core/main", "forking", 1);
+    log_stdout("core/main", startmsg, INFO);
+    log_stdout("core/main", "forking", INFO);
     init(&fork);
 
     while(1) {

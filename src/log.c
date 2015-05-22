@@ -39,20 +39,17 @@ void log_file (char *message)
         file = fopen(LOGFILE, "w");
         logFileCreated = 1;
     }
-    else
+    else {
         file = fopen(LOGFILE, "a");
+    }
 
     if (file == NULL) {
-        if (logFileCreated)
-            logFileCreated = 0;
-            return;
-    }
-    else
-    {
-        fputs(message, file);
-        (file);
+        logFileCreated = 0;
+        return;
     }
 
-    if (file)
-        fclose(file);
+    if (fputs(message, file) < 0) {
+        log_stderr("core/log ", "write to logfile failed", ERROR);
+    }
+    fclose(file);
 }
